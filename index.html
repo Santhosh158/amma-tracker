@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#16a34a">
+<meta name="description" content="30-நாள் எடை குறைப்பு டிராக்கர் — அம்மாவுக்காக 💚">
+<title>Amma Tracker 🌿</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:#0d1f12;overflow-x:hidden}
+#root{min-height:100dvh}
+@keyframes aFadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes aSpin{to{transform:rotate(360deg)}}
+@keyframes aPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+@keyframes aBreathe{0%,100%{transform:scale(1);opacity:0.6}50%{transform:scale(1.4);opacity:1}}
+@keyframes aConfetti{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+.a-ns::-webkit-scrollbar{display:none}
+.a-ns{-ms-overflow-style:none;scrollbar-width:none}
+input:focus{outline:2px solid #16a34a !important}
+</style>
+</head>
+<body>
+<div id="root">
+<div style="display:flex;align-items:center;justify-content:center;height:100dvh;background:#0d1f12">
+<div style="text-align:center">
+<div style="font-size:48px;animation:aPulse 1.5s infinite">🌿</div>
+<div style="color:#4ade80;margin-top:12px;font-family:-apple-system,sans-serif;font-size:14px">Loading...</div>
+</div></div></div>
+
+<script>
+window.storage={
+  async get(k){const v=localStorage.getItem(k);if(v===null)throw new Error("Not found");return{key:k,value:v}},
+  async set(k,v){localStorage.setItem(k,typeof v==="string"?v:JSON.stringify(v));return{key:k,value:v}},
+  async delete(k){localStorage.removeItem(k);return{key:k,deleted:true}},
+  async list(p){const keys=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(!p||k.startsWith(p))keys.push(k)}return{keys}}
+};
+</script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="app.js"></script>
+<script>ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));</script>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})});}
+</script>
+</body>
+</html>
