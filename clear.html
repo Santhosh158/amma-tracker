@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Amma — Cache Fix</title>
+<style>
+body{font-family:-apple-system,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;background:#f0fdf4;margin:0;padding:20px}
+.box{background:#fff;border-radius:20px;padding:40px 30px;text-align:center;max-width:340px;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+h2{color:#166534;margin-bottom:12px}
+p{color:#6b7280;font-size:14px;line-height:1.6;margin-bottom:20px}
+button{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;border:none;padding:14px 32px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;width:100%}
+.ok{color:#16a34a;font-size:18px;font-weight:700;margin-top:16px;display:none}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>🌿 Amma Tracker Fix</h2>
+<p>This will clear the old cached version and load the latest update.</p>
+<button onclick="fixIt()">Fix & Reload 🔄</button>
+<div id="ok" class="ok"></div>
+</div>
+<script>
+async function fixIt(){
+  const btn=document.querySelector('button');
+  const ok=document.getElementById('ok');
+  btn.textContent='Fixing...';
+  btn.disabled=true;
+  try{
+    // Unregister all service workers
+    const regs=await navigator.serviceWorker.getRegistrations();
+    for(const r of regs) await r.unregister();
+    // Delete all caches
+    const keys=await caches.keys();
+    for(const k of keys) await caches.delete(k);
+    ok.style.display='block';
+    ok.textContent='✅ Cache cleared! Redirecting...';
+    setTimeout(()=>window.location.href='./',1500);
+  }catch(e){
+    ok.style.display='block';
+    ok.textContent='⚠️ '+e.message+' — Try Settings → Safari → Clear Website Data';
+  }
+}
+</script>
+</body>
+</html>
