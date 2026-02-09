@@ -2924,6 +2924,28 @@ const TAMILFOODS = [{
     fib: 4,
     gi: "Low",
     note: "Iron + Zinc rich. கஞ்சி best 💪"
+  }, {
+    ta: "பிரவுன் அரிசி",
+    en: "Brown Rice (cooked)",
+    srv: "1 katori (150g)",
+    cal: 220,
+    prot: 5,
+    carb: 46,
+    fat: 1.5,
+    fib: 2.5,
+    gi: "Medium",
+    note: "More fiber than white rice, less than millets"
+  }, {
+    ta: "ராகி முட்டை",
+    en: "Ragi Mudde",
+    srv: "1 medium (100g)",
+    cal: 150,
+    prot: 4.5,
+    carb: 32,
+    fat: 1,
+    fib: 3.5,
+    gi: "Medium",
+    note: "344mg calcium! Traditional ragi ball 🦴"
   }]
 }, {
   cat: "🫘 பருப்பு & Legumes",
@@ -3186,6 +3208,72 @@ const TAMILFOODS = [{
     fib: 2,
     gi: "Low",
     note: "Quick protein breakfast!"
+  }, {
+    ta: "ரவா தோசை",
+    en: "Rava Dosa (1)",
+    srv: "1 medium",
+    cal: 155,
+    prot: 3.5,
+    carb: 22,
+    fat: 6,
+    fib: 0.5,
+    gi: "High",
+    note: "Crispier = more oil absorbed. Non-stick-ல் குறை"
+  }, {
+    ta: "வெண் பொங்கல்",
+    en: "Ven Pongal",
+    srv: "1 cup (150g)",
+    cal: 225,
+    prot: 6,
+    carb: 30,
+    fat: 9,
+    fib: 1.5,
+    gi: "Medium",
+    note: "நெய்+முந்திரி add calories. Small portion!"
+  }, {
+    ta: "ரவா உப்மா",
+    en: "Upma (Rava)",
+    srv: "1 cup (150g)",
+    cal: 230,
+    prot: 6,
+    carb: 32,
+    fat: 8,
+    fib: 2,
+    gi: "Medium",
+    note: "காய்கறி சேர்த்தால் better. Oats upma > rava"
+  }, {
+    ta: "ஓட்ஸ் உப்மா",
+    en: "Oats Upma",
+    srv: "1 cup",
+    cal: 195,
+    prot: 6.5,
+    carb: 28,
+    fat: 6,
+    fib: 4,
+    gi: "Low",
+    note: "Higher fiber than rava upma ✅"
+  }, {
+    ta: "கீரை பொரியல்",
+    en: "Keerai Poriyal",
+    srv: "1 serving (100g)",
+    cal: 85,
+    prot: 3.5,
+    carb: 6,
+    fat: 5,
+    fib: 3,
+    gi: "Low",
+    note: "Iron+Calcium! Water-sauté = 60 cal 🥬"
+  }, {
+    ta: "மோர் குழம்பு",
+    en: "Mor Kuzhambu",
+    srv: "1 cup",
+    cal: 145,
+    prot: 3.5,
+    carb: 12,
+    fat: 8,
+    fib: 1,
+    gi: "Low",
+    note: "Probiotic curd-based. Light lunch option"
   }]
 }, {
   cat: "🍌 பழம் & Nuts",
@@ -3346,6 +3434,144 @@ const TAMILFOODS = [{
     fib: 0,
     gi: "-",
     note: "Complete protein. 1/day is fine"
+  }, {
+    ta: "தேங்காய் எண்ணெய்",
+    en: "Coconut Oil",
+    srv: "1 tsp",
+    cal: 40,
+    prot: 0,
+    carb: 0,
+    fat: 4.5,
+    fib: 0,
+    gi: "-",
+    note: "MCT may boost metabolism. Quantity matters!"
+  }, {
+    ta: "நெய்",
+    en: "Ghee",
+    srv: "1 tsp",
+    cal: 45,
+    prot: 0,
+    carb: 0,
+    fat: 5,
+    fib: 0,
+    gi: "-",
+    note: "1 tsp limit. எந்த oil-ம் 40-45 cal/tsp!"
+  }, {
+    ta: "கருப்பட்டி",
+    en: "Palm Jaggery / Karupatti",
+    srv: "1 small piece (10g)",
+    cal: 30,
+    prot: 0.1,
+    carb: 7.5,
+    fat: 0,
+    fib: 0,
+    gi: "Low (35-41)",
+    note: "GI 35-41 vs sugar 60-80! Iron+Calcium. Sweet craving fix 🍬"
+  }, {
+    ta: "இஸப்கோல்",
+    en: "Isabgol / Psyllium Husk",
+    srv: "1 tsp",
+    cal: 10,
+    prot: 0,
+    carb: 2.5,
+    fat: 0,
+    fib: 2.5,
+    gi: "-",
+    note: "Constipation relief. Always drink extra water! 💧"
+  }]
+}, {
+  cat: "🍗 Protein Sources",
+  items: [{
+    ta: "மீன் குழம்பு (மத்தி)",
+    en: "Fish Curry (Sardine)",
+    srv: "1 serving (100g)",
+    cal: 200,
+    prot: 18,
+    carb: 5,
+    fat: 12,
+    fib: 0.5,
+    gi: "-",
+    note: "Omega-3: 1,500-2,000mg! Anti-inflammatory 🐟"
+  }, {
+    ta: "நெத்திலி மீன்",
+    en: "Nethili / Anchovy",
+    srv: "1 serving (100g)",
+    cal: 175,
+    prot: 17,
+    carb: 3,
+    fat: 10,
+    fib: 0,
+    gi: "-",
+    note: "Omega-3: 1,000mg + bone calcium! 🦴"
+  }, {
+    ta: "அயல மீன்",
+    en: "Mackerel Curry",
+    srv: "1 serving (100g)",
+    cal: 200,
+    prot: 19,
+    carb: 4,
+    fat: 12,
+    fib: 0,
+    gi: "-",
+    note: "Omega-3: 1,200mg. Week 2-3 times 🐟"
+  }, {
+    ta: "கோழி குழம்பு",
+    en: "Chicken Curry",
+    srv: "1 serving (100g)",
+    cal: 190,
+    prot: 17,
+    carb: 6,
+    fat: 10,
+    fib: 0.5,
+    gi: "-",
+    note: "Lean protein. Remove skin = less fat"
+  }, {
+    ta: "பன்னீர்",
+    en: "Paneer",
+    srv: "50g",
+    cal: 135,
+    prot: 9.5,
+    carb: 2,
+    fat: 10,
+    fib: 0,
+    gi: "-",
+    note: "Vegetarian protein. 50g portion limit"
+  }]
+}, {
+  cat: "☕ பானங்கள் / Beverages",
+  items: [{
+    ta: "மோர்",
+    en: "Buttermilk",
+    srv: "1 glass (200ml)",
+    cal: 45,
+    prot: 2.5,
+    carb: 5,
+    fat: 1.5,
+    fib: 0,
+    gi: "Low",
+    note: "Electrolytes+probiotics. Best hydration! 💧"
+  }, {
+    ta: "ஃபில்டர் காப்பி",
+    en: "Filter Coffee (milk+sugar)",
+    srv: "1 cup",
+    cal: 100,
+    prot: 2,
+    carb: 12,
+    fat: 4,
+    fib: 0,
+    gi: "-",
+    note: "Sugar drop = 30-40 cal saved. ½ tsp aim!"
+  }, {
+    ta: "க்ரீன் டீ",
+    en: "Green Tea",
+    srv: "1 cup",
+    cal: 2,
+    prot: 0,
+    carb: 0,
+    fat: 0,
+    fib: 0,
+    gi: "-",
+    note: "Almost zero cal! Antioxidants ✅"
   }]
 }];
 const SK = "amma-ult-v1";
@@ -6494,7 +6720,7 @@ function App() {
       t: "1,200 cal-க்கு கீழ் போனால்: ஊட்டச்சத்து குறைபாடு, தசை இழப்பு, வளர்சிதை மாற்றம் குறையும் (உடல் எதிர்க்கும்!), பித்தப்பை கல் ஆபத்து. நாம் கொழுப்பை குறைக்கணும், பட்டினி இல்ல!\n\nBelow 1,200: nutrient deficiency, muscle loss, metabolism slows. We want fat loss, not starvation."
     }, {
       h: "எதார்த்தமான காலக்கெடு — Timeline",
-      t: "மாதம் 1: 1.5-2.5 kg (நீர் + கொழுப்பு)\nமாதம் 3: 5-7 kg (உடை தளர்வாகும், மூட்டு வலி குறையும்)\nமாதம் 6: 10-13 kg (தெரியும் அளவு மாற்றம்!)\nமாதம் 12-18: ~21 kg இலக்கு\n\nமெதுவாக = நிலையானது. வேகமான டயட் எப்போதும் திரும்பி வரும்!"
+      t: "மாதம் 1: 1.5-2.5 kg (நீர் + கொழுப்பு)\nமாதம் 3: 5-7 kg (உடை தளர்வாகும், மூட்டு வலி குறையும்)\nமாதம் 6: 10-13 kg (தெரியும் அளவு மாற்றம்!)\nமாதம் 12-18: ~21 kg இலக்கு\n\nமெதுவாக = நிலையானது. வேகமான டயட் எப்போதும் திரும்பி வரும்!\n\n⚠️ ஒவ்வொரு 5-10 kg குறைந்ததும் portions-ஐ மறுகணக்கிடுங்கள்! 60 kg-ல் TDEE ~1,420 cal-ஆக குறையும் — deficit சுருங்கும்.\n\nEvery 5-10 kg lost, recalculate portions. A lighter body burns fewer calories, so the deficit shrinks naturally."
     }, {
       h: "மூட்டு வலி தொடர்பு — Knee Connection",
       t: "ஒவ்வொரு 1 kg குறைப்பு = மூட்டில் 4 kg அழுத்தம் குறையும்!\n5 kg குறைந்தால் → 20 kg குறைவு ஒவ்வொரு அடியிலும்\n10 kg குறைந்தால் → 40 kg நிவாரணம்!\n\nசின்ன முன்னேற்றமும் மூட்டு வலிக்கு பெரிய நிவாரணம்!"
@@ -6587,7 +6813,7 @@ function App() {
       t: "12.3g புரதம்/100g — எல்லா சிறுதானியங்களிலும் அதிகம்!\n\nதினை உப்புமா = சிறந்த காலை உணவு."
     }, {
       h: "எப்படி தொடங்குவது? — How to Start",
-      t: "வாரம் 1: ஒரு வேளை சாதத்தை சாமை/வரகு-ஆல் மாற்று\nவாரம் 2: ராகி தோசை வாரத்தில் 2 முறை\nவாரம் 3: கம்பு கஞ்சி இரவு உணவாக\nவாரம் 4: எல்லா சிறுதானியமும் சுழற்சி\n\n⚠️ எல்லா வேளையும் சிறுதானியம் வேண்டாம் — சுழற்சி செய்யுங்கள். கூடுதல் தண்ணீர் குடியுங்கள்!"
+      t: "வாரம் 1: ஒரு வேளை சாதத்தை சாமை/வரகு-ஆல் மாற்று\nவாரம் 2: ராகி தோசை வாரத்தில் 2 முறை\nவாரம் 3: கம்பு கஞ்சி இரவு உணவாக\nவாரம் 4: எல்லா சிறுதானியமும் சுழற்சி\n\n⚠️ எல்லா வேளையும் சிறுதானியம் வேண்டாம் — சுழற்சி செய்யுங்கள். கூடுதல் தண்ணீர் குடியுங்கள்!\n\n🔬 சிறுதானியத்தில் phytates (anti-nutrients) உள்ளது — ஊறவைத்தல், முளைகட்டுதல், புளிக்கவைத்தல் மூலம் குறையும். Soaking 6-8 hrs before cooking = best!"
     }, {
       h: "கோவையில் எங்கே வாங்குவது?",
       t: "சாதாரண நெத்தி கடை, ஆர்கானிக் கடைகள் (RS Puram, சரவணம்பட்டி), சூப்பர்மார்க்கெட் (Nilgiris, Reliance Fresh), ஆன்லைன் (BigBasket, Amazon)."
@@ -6636,6 +6862,9 @@ function App() {
     }, {
       h: "சாப்பிடும் வரிசை முக்கியம்!",
       t: "1️⃣ பொரியல்/சாலட் முதலில்\n2️⃣ சாம்பார் சாதம்\n3️⃣ ரசம் சாதம்\n4️⃣ கொஞ்சம் தயிர் சாதம் கடைசியில்\n\nநார்ச்சத்து+புரதத்தால் வயிறு நிரம்பும், சாதம் குறையும். இயற்கையான அளவு கட்டுப்பாடு!"
+    }, {
+      h: "3 வேளை vs 6 சிறிய வேளை — Research",
+      t: "ஆராய்ச்சி: மொத்த cal சமம் என்றால் 3 வேளை vs 6 சிறிய வேளை — எடை குறைப்பில் வேறுபாடு இல்லை!\n\n2025 ஆய்வு: அதிக BMI உள்ளவர்களுக்கு 6 சிறிய வேளை = அதிக பசி உணர்வு!\n\n✅ சிறந்தது: 3 structured meals + 1 சிறிய snack.\nகாலை+மதியம் அதிகமாக, இரவு குறைவாக = better results.\n\nResearch says 3 meals + 1 snack is optimal. Front-loading calories (heavier breakfast & lunch, lighter dinner) shows better weight loss."
     }]
   }, {
     id: "challenges",
