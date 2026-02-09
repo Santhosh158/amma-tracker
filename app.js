@@ -3613,9 +3613,9 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const r = await window.storage.get(SK);
-        if (r && r.value) {
-          const d = JSON.parse(r.value);
+        const raw = localStorage.getItem(SK);
+        if (raw) {
+          const d = JSON.parse(raw);
           setD(d);
           if (d.sd) {
             const t = new Date(),
@@ -3641,7 +3641,7 @@ function App() {
           };
           setD(fresh);
           try {
-            await window.storage.set(SK, JSON.stringify(fresh));
+            localStorage.setItem(SK, JSON.stringify(fresh));
           } catch {}
           setOnboard(0);
         }
@@ -3658,7 +3658,7 @@ function App() {
         };
         setD(fresh);
         try {
-          await window.storage.set(SK, JSON.stringify(fresh));
+          localStorage.setItem(SK, JSON.stringify(fresh));
         } catch {}
         setOnboard(0);
       }
@@ -3668,10 +3668,10 @@ function App() {
   const save = useCallback(async nd => {
     setD(nd);
     try {
-      await window.storage.set(SK, JSON.stringify(nd));
+      localStorage.setItem(SK, JSON.stringify(nd));
     } catch (e) {
       try {
-        await window.storage.set(SK, JSON.stringify(nd));
+        localStorage.setItem(SK, JSON.stringify(nd));
       } catch {}
     }
   }, []);
@@ -4059,23 +4059,24 @@ function App() {
       ...cs
     }
   }, rest), children);
-  const Input = ({
-    ...rest
-  }) => /*#__PURE__*/React.createElement("input", _extends({}, rest, {
-    style: {
-      width: '100%',
-      padding: '11px 12px',
-      borderRadius: 10,
-      border: `1.5px solid ${T.inputBd}`,
-      fontSize: 16,
-      outline: 'none',
-      boxSizing: 'border-box',
-      WebkitAppearance: 'none',
-      background: T.inputBg,
-      color: T.text,
-      ...(rest.style || {})
-    }
-  }));
+  const Input = useMemo(() => {
+    const StableInput = ({...rest}) => /*#__PURE__*/React.createElement("input", _extends({}, rest, {
+      style: {
+        width: '100%',
+        padding: '11px 12px',
+        borderRadius: 10,
+        border: `1.5px solid ${T.inputBd}`,
+        fontSize: 16,
+        outline: 'none',
+        boxSizing: 'border-box',
+        WebkitAppearance: 'none',
+        background: T.inputBg,
+        color: T.text,
+        ...(rest.style || {})
+      }
+    }));
+    return StableInput;
+  }, [dark]);
   const Hdr = ({
     bg,
     children
@@ -4346,8 +4347,9 @@ function App() {
       value: D.name,
       onChange: e => save({
         ...D,
-        name: e.target.value || "அம்மா"
+        name: e.target.value
       }),
+      onBlur: e => { if (!e.target.value.trim()) save({...D, name: "அம்மா"}); },
       placeholder: "\u0B85\u0BAE\u0BCD\u0BAE\u0BBE",
       style: {
         marginTop: 20,
@@ -6410,8 +6412,9 @@ function App() {
     value: D.name,
     onChange: e => save({
       ...D,
-      name: e.target.value || "அம்மா"
-    })
+      name: e.target.value
+    }),
+    onBlur: e => { if (!e.target.value.trim()) save({...D, name: "அம்மா"}); }
   })), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 15,
