@@ -3604,6 +3604,7 @@ function App() {
   const [nutSearch, setNutSearch] = useState("");
   const [guideOpen, setGuideOpen] = useState({});
   const [guideView, setGuideView] = useState("learn");
+  const [showInstall, setShowInstall] = useState(false);
   const cgRef = useRef({
     n: 0,
     t: null
@@ -3665,6 +3666,16 @@ function App() {
       setLoaded(true);
     })();
   }, []);
+  // iOS Install Banner detection
+  useEffect(() => {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const isStandalone = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+    const dismissed = localStorage.getItem('amma-install-dismissed');
+    if (isIOS && !isStandalone && !dismissed) {
+      setTimeout(() => setShowInstall(true), 2000);
+    }
+  }, []);
+
   const save = useCallback(async nd => {
     setD(nd);
     try {
@@ -7297,7 +7308,223 @@ function App() {
       lineHeight: 1.5,
       transition: 'background 0.3s'
     }
-  }, confetti && /*#__PURE__*/React.createElement(Confetti, null), tab === "today" && Today(), tab === "meals" && MealsTab(), tab === "progress" && ProgressTab(), tab === "shop" && ShopTab(), tab === "settings" && SettingsTab(), tab === "cg" && CgTab(), tab === "guide" && GuideTab(), recipe && /*#__PURE__*/React.createElement("div", {
+  }, confetti && /*#__PURE__*/React.createElement(Confetti, null), showInstall && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'fixed',
+      bottom: 76,
+      left: 8,
+      right: 8,
+      zIndex: 500,
+      maxWidth: 464,
+      margin: '0 auto',
+      animation: 'aFadeUp 0.5s ease'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: dark ? '#1a2e20' : '#fff',
+      borderRadius: 20,
+      padding: '20px 18px 16px',
+      boxShadow: '0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.1)',
+      border: dark ? '1px solid #2a4a30' : '1px solid #e5e7eb',
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setShowInstall(false);
+      localStorage.setItem('amma-install-dismissed', '1');
+    },
+    style: {
+      position: 'absolute',
+      top: 8,
+      right: 10,
+      background: 'none',
+      border: 'none',
+      fontSize: 22,
+      color: T.muted,
+      cursor: 'pointer',
+      padding: '4px 8px',
+      lineHeight: 1
+    }
+  }, "\u00D7"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      fontWeight: 800,
+      color: T.text,
+      marginBottom: 14,
+      paddingRight: 28
+    }
+  }, "🌿 Add to Home Screen!"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 10,
+      background: '#007AFF',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: 20,
+    height: 20,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "#fff",
+    strokeWidth: 2.5,
+    strokeLinecap: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 16V3M12 3l4 4M12 3L8 7"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M4 14v5a2 2 0 002 2h12a2 2 0 002-2v-5"
+  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: T.text
+    }
+  }, "Step 1"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: T.sub
+    }
+  }, "Tap the ", /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      background: '#007AFF',
+      color: '#fff',
+      borderRadius: 6,
+      padding: '1px 7px',
+      fontSize: 15,
+      fontWeight: 700,
+      verticalAlign: 'middle',
+      margin: '0 3px'
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: 14,
+    height: 14,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "#fff",
+    strokeWidth: 2.5,
+    strokeLinecap: "round",
+    style: {marginRight: 3}
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 16V3M12 3l4 4M12 3L8 7"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M4 14v5a2 2 0 002 2h12a2 2 0 002-2v-5"
+  })), "Share"), " button below"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 10,
+      background: '#16a34a',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: 20,
+    height: 20,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "#fff",
+    strokeWidth: 2.5,
+    strokeLinecap: "round"
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: 3,
+    y: 3,
+    width: 18,
+    height: 18,
+    rx: 4
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 8v8M8 12h8"
+  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: T.text
+    }
+  }, "Step 2"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: T.sub
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      background: '#16a34a',
+      color: '#fff',
+      borderRadius: 6,
+      padding: '1px 7px',
+      fontSize: 13,
+      fontWeight: 700,
+      verticalAlign: 'middle',
+      margin: '0 3px 0 0'
+    }
+  }, "+ Add to Home Screen"), " from the menu"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 36,
+      height: 36,
+      borderRadius: 10,
+      background: '#f59e0b',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: 0,
+      fontSize: 18
+    }
+  }, "\u2705"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: T.text
+    }
+  }, "Step 3"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: T.sub
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 700
+    }
+  }, "Add"), " \u2014 and you're done! \uD83C\uDF89")))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 14,
+      paddingTop: 12,
+      borderTop: `1px solid ${T.border}`,
+      fontSize: 11,
+      color: T.muted,
+      textAlign: 'center'
+    }
+  }, "Works like a real app \u2022 Works offline too!"))), tab === "today" && Today(), tab === "meals" && MealsTab(), tab === "progress" && ProgressTab(), tab === "shop" && ShopTab(), tab === "settings" && SettingsTab(), tab === "cg" && CgTab(), tab === "guide" && GuideTab(), recipe && /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'fixed',
       inset: 0,
