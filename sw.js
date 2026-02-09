@@ -1,4 +1,4 @@
-const CACHE='amma-v19';
+const CACHE='amma-v20';
 const ASSETS=['./','./index.html','./app.js','./manifest.json','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',e=>e.waitUntil(

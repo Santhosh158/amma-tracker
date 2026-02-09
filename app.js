@@ -3,8 +3,7 @@ const {
   useState,
   useEffect,
   useCallback,
-  useRef,
-  useMemo
+  useRef
 } = React;
 
 /* ═══════════════════════════════════════════════════════════════
@@ -4060,24 +4059,19 @@ function App() {
       ...cs
     }
   }, rest), children);
-  const Input = useMemo(() => {
-    const StableInput = ({...rest}) => /*#__PURE__*/React.createElement("input", _extends({}, rest, {
-      style: {
-        width: '100%',
-        padding: '11px 12px',
-        borderRadius: 10,
-        border: `1.5px solid ${T.inputBd}`,
-        fontSize: 16,
-        outline: 'none',
-        boxSizing: 'border-box',
-        WebkitAppearance: 'none',
-        background: T.inputBg,
-        color: T.text,
-        ...(rest.style || {})
-      }
-    }));
-    return StableInput;
-  }, [dark]);
+  const iSty = (extra) => ({
+    width: '100%',
+    padding: '11px 12px',
+    borderRadius: 10,
+    border: `1.5px solid ${T.inputBd}`,
+    fontSize: 16,
+    outline: 'none',
+    boxSizing: 'border-box',
+    WebkitAppearance: 'none',
+    background: T.inputBg,
+    color: T.text,
+    ...(extra || {})
+  });
   const Hdr = ({
     bg,
     children
@@ -6065,7 +6059,7 @@ function App() {
         color: T.sub,
         marginBottom: 3
       }
-    }, "\u2696\uFE0F Weight (kg) *"), /*#__PURE__*/React.createElement(Input, {
+    }, "\u2696\uFE0F Weight (kg) *"), /*#__PURE__*/React.createElement("input", { style: iSty(),
       type: "number",
       step: "0.1",
       placeholder: "70.5",
@@ -6081,7 +6075,7 @@ function App() {
         color: T.sub,
         marginBottom: 3
       }
-    }, "\uD83D\uDCCF Waist (cm)"), /*#__PURE__*/React.createElement(Input, {
+    }, "\uD83D\uDCCF Waist (cm)"), /*#__PURE__*/React.createElement("input", { style: iSty(),
       type: "number",
       step: "0.5",
       placeholder: "85",
@@ -6408,7 +6402,7 @@ function App() {
       color: T.muted,
       marginBottom: 4
     }
-  }, "Name"), /*#__PURE__*/React.createElement(Input, {
+  }, "Name"), /*#__PURE__*/React.createElement("input", { style: iSty(),
     type: "text",
     value: D.name,
     onChange: e => save({

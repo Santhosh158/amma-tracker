@@ -10,35 +10,41 @@ body{font-family:-apple-system,sans-serif;display:flex;justify-content:center;al
 h2{color:#166534;margin-bottom:12px}
 p{color:#6b7280;font-size:14px;line-height:1.6;margin-bottom:20px}
 button{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;border:none;padding:14px 32px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;width:100%}
-.ok{color:#16a34a;font-size:18px;font-weight:700;margin-top:16px;display:none}
+.ok{color:#16a34a;font-size:15px;font-weight:600;margin-top:16px}
 </style>
 </head>
 <body>
 <div class="box">
 <h2>🌿 Amma Tracker Fix</h2>
-<p>This will clear the old cached version and load the latest update.</p>
+<p>Clear old cache and load latest version.</p>
 <button onclick="fixIt()">Fix & Reload 🔄</button>
-<div id="ok" class="ok"></div>
+<div id="ok"></div>
 </div>
 <script>
 async function fixIt(){
-  const btn=document.querySelector('button');
-  const ok=document.getElementById('ok');
+  var btn=document.querySelector('button');
+  var ok=document.getElementById('ok');
   btn.textContent='Fixing...';
   btn.disabled=true;
+  ok.textContent='🔄 Clearing caches...';
   try{
-    // Unregister all service workers
-    const regs=await navigator.serviceWorker.getRegistrations();
-    for(const r of regs) await r.unregister();
-    // Delete all caches
-    const keys=await caches.keys();
-    for(const k of keys) await caches.delete(k);
-    ok.style.display='block';
-    ok.textContent='✅ Cache cleared! Redirecting...';
-    setTimeout(()=>window.location.href='./',1500);
+    // 1. Unregister all service workers
+    if(navigator.serviceWorker){
+      var regs=await navigator.serviceWorker.getRegistrations();
+      for(var i=0;i<regs.length;i++) await regs[i].unregister();
+    }
+    // 2. Delete all caches
+    if(window.caches){
+      var keys=await caches.keys();
+      for(var j=0;j<keys.length;j++) await caches.delete(keys[j]);
+    }
+    ok.textContent='✅ Cache cleared! Loading fresh...';
+    // 3. Force reload with cache bypass
+    setTimeout(function(){
+      window.location.href='./index.html?nocache='+Date.now();
+    },1000);
   }catch(e){
-    ok.style.display='block';
-    ok.textContent='⚠️ '+e.message+' — Try Settings → Safari → Clear Website Data';
+    ok.innerHTML='⚠️ '+e.message+'<br><br>Try: Settings → Safari → Clear Website Data for this site';
   }
 }
 </script>
